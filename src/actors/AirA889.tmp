@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtm4y7pq1br40"]
+
+[ext_resource type="Script" path="res://src/actors/Airplane2.gd" id="1_ydrwc"]
+[ext_resource type="Texture2D" uid="uid://d27smml3egl1e" path="res://assets/art/sopwithcamel.png" id="2_h0254"]
+[ext_resource type="Script" path="res://src/actors/Camera2D.gd" id="3_8k4wx"]
+[ext_resource type="Texture2D" uid="uid://bhvm3vxr4pvg0" path="res://assets/art/altitude.png" id="4_knjs8"]
+[ext_resource type="AudioStream" uid="uid://dj5ypen1nvffw" path="res://assets/audio/Recording.wav" id="5_jat2h"]
+[ext_resource type="Texture2D" uid="uid://cxfn12mq1oike" path="res://assets/art/altitude bar.png" id="5_rdunv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_06s7n"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l504n"]
+radius = 128.449
+height = 627.445
+
+[node name="Airplane" type="RigidBody2D"]
+position = Vector2(180, 200)
+mass = 500.0
+physics_material_override = SubResource("PhysicsMaterial_06s7n")
+script = ExtResource("1_ydrwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.39798, 0.272011)
+rotation = 0.0872665
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_h0254")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0.114014, 4.617)
+zoom = Vector2(0.1, 0.1)
+position_smoothing_speed = 10.0
+script = ExtResource("3_8k4wx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+offset = Vector2(1100, 150)
+scale = Vector2(0.1, 0.1)
+transform = Transform2D(0.1, 0, 0, 0.1, 1100, 150)
+
+[node name="Altitude" type="Sprite2D" parent="Camera2D/CanvasLayer"]
+texture = ExtResource("4_knjs8")
+
+[node name="Altitude Bar" type="Sprite2D" parent="Camera2D/CanvasLayer"]
+position = Vector2(80, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rdunv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-20, -16)
+rotation = 1.72788
+shape = SubResource("CapsuleShape2D_l504n")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(300, -1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jat2h")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1

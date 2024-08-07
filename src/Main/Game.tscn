@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://qr887l8ck2cq"]
+
+[ext_resource type="PackedScene" uid="uid://k65yc4hhbdtg" path="res://src/level/Level.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dtm4y7pq1br40" path="res://src/actors/Airplane.tscn" id="2"]
+[ext_resource type="Script" path="res://src/Main/Game.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://dxyu58n78kfo7" path="res://assets/art/sky.png" id="4_xnfrv"]
+[ext_resource type="Texture2D" uid="uid://be4qcqvw7vlod" path="res://assets/art/cloud-8120.png" id="5_tq0k8"]
+[ext_resource type="Texture2D" uid="uid://3p4ihlb8llmt" path="res://assets/art/Smokestack.png" id="6_8r20w"]
+[ext_resource type="Script" path="res://src/Main/Smokestack.gd" id="6_xha0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruge8"]
+size = Vector2(806, 992)
+
+[node name="Node" type="Node"]
+script = ExtResource("3")
+
+[node name="Level" parent="." instance=ExtResource("1")]
+position = Vector2(-118, 144)
+
+[node name="Airplane" parent="Level" instance=ExtResource("2")]
+position = Vector2(500, 200)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Level"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Level/ParallaxBackground"]
+z_index = 1
+motion_mirroring = Vector2(1280, 788)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(453, 279)
+scale = Vector2(20, 20)
+texture = ExtResource("4_xnfrv")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Level/ParallaxBackground"]
+z_index = 1
+motion_mirroring = Vector2(50000, 25000)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/ParallaxBackground/ParallaxLayer"]
+position = Vector2(14.9998, 47)
+scale = Vector2(30, 30)
+texture = ExtResource("5_tq0k8")
+
+[node name="Smokestack" type="RigidBody2D" parent="Level"]
+position = Vector2(70000, 0)
+collision_layer = 3
+collision_mask = 3
+mass = 10000.0
+script = ExtResource("6_xha0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Smokestack"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_ruge8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Smokestack"]
+texture = ExtResource("6_8r20w")
+
+[node name="Smokestack" type="RigidBody2D" parent="."]
+position = Vector2(2000, 0)
+collision_layer = 3
+collision_mask = 3
+mass = 10000.0
+script = ExtResource("6_xha0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Smokestack"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_ruge8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Smokestack"]
+texture = ExtResource("6_8r20w")
