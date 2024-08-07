@@ -121,7 +121,7 @@ func _physics_process(delta):
 	airplane_rotation = rotation
 	#rotation = atan2(linear_velocity.y, linear_velocity.x)
 	
-	print(airplane_position.y)
+	#print(airplane_position.y)
 	$"Camera2D/CanvasLayer/Altitude Bar".global_position.y = airplane_position.y * 0.05 + 1050
 	
 	#Altitude "0" will be 925
