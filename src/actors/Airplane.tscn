@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/actors/Camera2D.gd" id="3_8k4wx"]
 [ext_resource type="Texture2D" uid="uid://bhvm3vxr4pvg0" path="res://assets/art/altitude.png" id="4_knjs8"]
 [ext_resource type="AudioStream" uid="uid://dj5ypen1nvffw" path="res://assets/audio/Recording.wav" id="5_jat2h"]
-[ext_resource type="Texture2D" uid="uid://cxfn12mq1oike" path="res://assets/art/altitude bar.png" id="5_rdunv"]
+[ext_resource type="Texture2D" uid="uid://83lfuqetci7s" path="res://assets/art/altitude-bar.png" id="5_vs5h4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_06s7n"]
 friction = 0.0
@@ -43,7 +43,7 @@ texture = ExtResource("4_knjs8")
 [node name="Altitude Bar" type="Sprite2D" parent="Camera2D/CanvasLayer"]
 position = Vector2(80, 0)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_rdunv")
+texture = ExtResource("5_vs5h4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-20, -16)
