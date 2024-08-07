@@ -29,6 +29,8 @@ func _physics_process(delta):
 		var body = collision_info.get_collider()
 		if body.name == "Smokestack":
 			body._on_hit()
+		elif body.name == "Smokestack2":
+			body._on_hit()
 		print("Collided with: ", body.name)
 		hit.emit()
 		queue_free()
