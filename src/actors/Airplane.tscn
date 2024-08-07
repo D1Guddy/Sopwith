@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtm4y7pq1br40"]
+[gd_scene load_steps=11 format=3 uid="uid://dtm4y7pq1br40"]
 
 [ext_resource type="Script" path="res://src/actors/Airplane2.gd" id="1_ydrwc"]
 [ext_resource type="Texture2D" uid="uid://d27smml3egl1e" path="res://assets/art/sopwithcamel.png" id="2_h0254"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bhvm3vxr4pvg0" path="res://assets/art/altitude.png" id="4_knjs8"]
 [ext_resource type="AudioStream" uid="uid://dj5ypen1nvffw" path="res://assets/audio/Recording.wav" id="5_jat2h"]
 [ext_resource type="Texture2D" uid="uid://83lfuqetci7s" path="res://assets/art/altitude-bar.png" id="5_vs5h4"]
+[ext_resource type="Texture2D" uid="uid://bjxljockxrewl" path="res://assets/art/speedometerframe.png" id="6_4o5th"]
+[ext_resource type="Texture2D" uid="uid://db4o55rduja0l" path="res://assets/art/speedometerbar.png" id="7_uv83u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_06s7n"]
 friction = 0.0
@@ -44,6 +46,21 @@ texture = ExtResource("4_knjs8")
 position = Vector2(80, 0)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_vs5h4")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D"]
+offset = Vector2(130, 448)
+scale = Vector2(0.2, 0.2)
+transform = Transform2D(0.2, 0, 0, 0.2, 130, 448)
+
+[node name="speedometer" type="Sprite2D" parent="Camera2D/CanvasLayer2"]
+position = Vector2(50, -100)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_4o5th")
+
+[node name="speedometer bar" type="Sprite2D" parent="Camera2D/CanvasLayer2"]
+position = Vector2(40, 980)
+scale = Vector2(0.62, 0.206)
+texture = ExtResource("7_uv83u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-20, -16)
