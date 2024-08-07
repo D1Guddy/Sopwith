@@ -81,17 +81,3 @@ shape = SubResource("RectangleShape2D_ruge8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Smokestack2"]
 texture = ExtResource("6_8r20w")
-
-[node name="Smokestack3" type="RigidBody2D" parent="."]
-position = Vector2(2000, 0)
-collision_layer = 3
-collision_mask = 3
-mass = 10000.0
-script = ExtResource("6_xha0u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Smokestack3"]
-position = Vector2(16, 0)
-shape = SubResource("RectangleShape2D_ruge8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Smokestack3"]
-texture = ExtResource("6_8r20w")
