@@ -78,3 +78,10 @@ stream = ExtResource("5_jat2h")
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.1
+
+[node name="BombTimer" type="Timer" parent="."]
+
+[node name="BombNode2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="BombNode2D"]
+position = Vector2(0, 100)

@@ -20,6 +20,7 @@ var power_setting = 0
 
 const bulletPath = preload("res://Bullet.tscn")
 const scriptPath = preload("res://bullet.gd")
+const bombPath = preload("res://Bomb.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,6 +55,16 @@ func shoot():
 	$AudioStreamPlayer.play(0)
 	$Timer.start()
 	
+func bomb():
+	var bomb = bombPath.instantiate()
+	
+	get_parent().add_child(bomb)
+	bomb.get_child(0).set_speed(linear_velocity)
+	bomb.get_child(0).set_rotation(rotation)
+	
+	bomb.global_position = $BombNode2D/Marker2D.global_position
+	$BombTimer.start()
+	
 	
 func _physics_process(delta):
 	#if Input.is_action_pressed("Elevate down"):
@@ -71,6 +82,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Shoot"):
 		if $Timer.time_left < 0.01:
 			shoot()
+		
+	if Input.is_action_pressed("Bomb"):
+		bomb()
 		
 	
 	power_setting = clamp(power_setting, 0, 5)
